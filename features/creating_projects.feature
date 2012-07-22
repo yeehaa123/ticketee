@@ -7,4 +7,6 @@ Feature: Creating projects
 		Given I am on the homepage
 		When I go to the new project page
 		And I create a project named "TextMate 2" 
-		Then I should see the created project 	
+		Then I should see the created project
+		And I should be on the project page for "TextMate 2"
+		And I should see "TextMate 2 - Projects - Ticketee"
