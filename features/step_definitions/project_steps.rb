@@ -15,11 +15,14 @@ Then /^I should see the created project$/ do
 	page.should have_content 'Project has been created'
 end
 
-Then /^I should be on the project page for "(.*?)"$/ do |arg1|
-  current_path.should == project_path(Project.find_by_name!('TextMate 2'))
-  page.should have_content("TextMate 2 - Projects - Ticketee")
+Then /^I should be on the project page for "(.*?)"$/ do |project_name|
+  current_path.should == project_path(Project.find_by_name!(project_name))
 end
 
-Then /^I should see "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^I should see "(.*?)"$/ do |message|
+  page.should have_content(message)
+end
+
+When /^I create a project$/ do
+		click_button 'Create'
 end
