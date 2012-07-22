@@ -26,3 +26,11 @@ end
 When /^I create a project$/ do
 		click_button 'Create'
 end
+
+Given /^there is a project called "(.*?)"$/ do |name|
+	Factory(:project, name: name)	
+end
+
+When /^I follow "(.*?)"$/ do |link_name|
+	click_link link_name
+end
