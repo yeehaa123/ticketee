@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
 		if @project.save
 			redirect_to @project, notice: "Project has been created."
 		else
-			render action: "new", alert: "Project has not been created."
+			flash[:alert] = "Project has not been created."
+			render action: "new"
 		end
 	end
 
@@ -28,13 +29,14 @@ class ProjectsController < ApplicationController
 		if @project.update_attributes(params[:project])
 			redirect_to @project, notice: "Project has been updated."
 		else
-			render action: "edit", alert: "Project has not been updated."
+			flash[:alert] = "Project has not been updated."
+			render action: "edit"
 		end
 	end
 
 	def destroy
 		@project.destroy
-		redirect_to projects_path, notice: "Project has been deleted"
+		redirect_to projects_path, notice: "Project has been deleted."
 	end	
 
 	private
