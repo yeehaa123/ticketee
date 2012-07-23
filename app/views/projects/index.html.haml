@@ -2,3 +2,4 @@
 %ul
 	- @projects.each do |project|
 		%li= link_to project.name, project
+	%li= link_to "New Project", new_project_path
