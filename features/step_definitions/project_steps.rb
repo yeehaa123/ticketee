@@ -20,7 +20,10 @@ Then /^I should be on the project page for "(.*?)"$/ do |project_name|
 end
 
 Then /^I should see "(.*?)"$/ do |message|
-  page.should have_content(message)
+end
+
+Then /^I should not see "(.*?)"$/ do |message|
+  page.should_not have_content(message)
 end
 
 When /^I create a project$/ do
