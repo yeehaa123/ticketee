@@ -19,12 +19,16 @@ Then /^I should be on the project page for "(.*?)"$/ do |project_name|
   current_path.should == project_path(Project.find_by_name!(project_name))
 end
 
-Then /^I should see "(.*?)"$/ do |message|
-	page.should have_content(message)
+Then /^I should( not)? see "(.*?)"$/ do |negate, message|
+	negate ? page.should_not(have_content(message)) : page.should(have_content(message))
 end
 
-Then /^I should not see "(.*?)"$/ do |message|
-  page.should_not have_content(message)
+Then /^I should see( not)? "([^"]*)" within "([^"]*)"$/ do |negate, text, selector|
+	if negate
+		page.should_not have_selector selector, content: text
+	else
+		page.should have_selector selector, content: text
+	end 
 end
 
 When /^I create a project$/ do
@@ -32,7 +36,7 @@ When /^I create a project$/ do
 end
 
 Given /^there is a project called "(.*?)"$/ do |name|
-	Factory(:project, name: name)	
+	@project = Factory(:project, name: name)	
 end
 
 When /^I follow "(.*?)"$/ do |link_name|
@@ -46,3 +50,10 @@ end
 When /^I press "(.*?)"$/ do |button_name|
 		click_button button_name
 end
+
+Given /^that project has a ticket:$/ do |table|
+	table.hashes.each do |attributes|
+		@project.tickets.create!(attributes)
+	end
+end
+
