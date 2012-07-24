@@ -11,6 +11,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'haml-rails'
 gem 'thin'
+gem 'devise', '~> 1.4.3'  
 
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
