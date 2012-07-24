@@ -19,7 +19,7 @@ Then /^I should be on the project page for "(.*?)"$/ do |project_name|
   current_path.should == project_path(Project.find_by_name!(project_name))
 end
 
-Then /^I should( not)? see "(.*?)"$/ do |negate, message|
+Then /^I should( not)? see "([^"]*)"$/ do |negate, message|
 	negate ? page.should_not(have_content(message)) : page.should(have_content(message))
 end
 
