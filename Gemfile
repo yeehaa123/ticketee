@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'pg', '0.12.2'
 
 gem 'rails', '3.2.6'
-gem 'jquery-rails', '2.0.0'
+gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-sass', '2.0.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
@@ -14,7 +14,7 @@ gem 'thin'
 gem 'devise', '~> 1.4.3'  
 
 group :development, :test do
-  gem 'rspec-rails', '2.10.0'
+  gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '0.5.5'
 end
 
