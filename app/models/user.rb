@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   def to_s
-  	"#{email} (#{admin? ? "Admin" : "User"}"
+  	"#{email} (#{admin? ? "Admin" : "User"})"
   end
 end
