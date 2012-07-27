@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'pg', '0.12.2'
+gem 'pg'
 
 gem 'rails', '3.2.6'
 gem 'jquery-rails', '2.0.2'
@@ -13,6 +13,8 @@ gem 'haml-rails'
 gem 'thin'
 gem 'devise', '~> 1.4.3'  
 gem 'cancan'
+
+gem 'paperclip'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
