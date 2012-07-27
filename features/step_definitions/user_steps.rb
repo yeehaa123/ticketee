@@ -24,6 +24,6 @@ Given /^I am signed in as "(.*?)"$/ do |email|
 	steps("Given I am signed in as them")
 end
 
-When /^I check "(.*?)"$/ do |input_field|
+When /^I check "([^"]*)"$/ do |input_field|
 	check(input_field)
 end
