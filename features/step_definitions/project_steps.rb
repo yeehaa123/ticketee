@@ -25,9 +25,9 @@ end
 
 Then /^I should see( not)? "([^"]*)" within "([^"]*)"$/ do |negate, text, selector|
 	if negate
-		page.should_not have_selector selector, content: text
+		page.should_not have_selector selector, text: text
 	else
-		page.should have_selector selector, content: text
+		page.should have_selector selector, text: text
 	end 
 end
 
