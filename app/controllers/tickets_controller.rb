@@ -8,9 +8,7 @@ class TicketsController < ApplicationController
 
 	def new
 		@ticket = @project.tickets.build
-		3.times do
-			@ticket.assets.build 
-		end
+		@ticket.assets.build 
 	end
 
 	def create
