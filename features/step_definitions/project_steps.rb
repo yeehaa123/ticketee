@@ -46,10 +46,6 @@ Given /^there is a project called "(.*?)"$/ do |name|
 	@project = Factory(:project, name: name)	
 end
 
-# When /^I follow "([^"]*)"$/ do |link_name|
-# 	click_link link_name
-# end
-
 When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
 	with_scope(selector) do
 	  click_link(link)
@@ -81,5 +77,11 @@ end
 class String
   def csserize
     self.downcase.gsub(" ","-")
+  end
+end
+
+When /^(?:|I )select "([^"]*)" from "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
+  with_scope(selector) do
+    select(value, from: field)
   end
 end
