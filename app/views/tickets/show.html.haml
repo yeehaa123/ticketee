@@ -11,10 +11,18 @@
 
 	- if @ticket.assets.exists?
 		%h3 Attached Files
-		%div.assets
+		.assets
 			- @ticket.assets.each do |asset|
 				%p
 					= link_to File.basename(asset.asset_file_name),
 						asset.asset.url
 				%p 
 					%small= number_to_human_size(asset.asset.size)
+
+	%h3 Comments
+	#comments
+		- if @ticket.comments.exists?
+			= render @ticket.comments.select(&:persisted?)
+		- else
+			There are no comments for this ticket
+	= render "comments/form"

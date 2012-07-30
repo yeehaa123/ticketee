@@ -1,5 +1,5 @@
 %h2 Projects
-%ul
+%ul#projects
 	- @projects.each do |project|
 		%li= link_to project.name, project
 		= admins_only do

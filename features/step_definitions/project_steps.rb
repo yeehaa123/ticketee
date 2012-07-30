@@ -1,3 +1,10 @@
+module WithinHelpers
+  def with_scope(locator)
+    locator ? within(locator) { yield } : yield
+  end
+end
+World(WithinHelpers)
+
 Given /^I am on the homepage$/ do
 	visit('/ ')
 end
@@ -39,8 +46,14 @@ Given /^there is a project called "(.*?)"$/ do |name|
 	@project = Factory(:project, name: name)	
 end
 
-When /^I follow "(.*?)"$/ do |link_name|
-	click_link link_name
+# When /^I follow "([^"]*)"$/ do |link_name|
+# 	click_link link_name
+# end
+
+When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
+	with_scope(selector) do
+	  click_link(link)
+	end
 end
 
 When /^I fill in "(.*?)" with "(.*?)"$/ do |input_field, name|
@@ -61,3 +74,12 @@ When /^I attach the file "(.*?)" to "(.*?)"$/ do |path, field|
 	attach_file(field, File.expand_path(path))
 end
 
+Then /^show me the page$/ do
+  save_and_open_page
+end
+
+class String
+  def csserize
+    self.downcase.gsub(" ","-")
+  end
+end
