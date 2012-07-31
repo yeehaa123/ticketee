@@ -11,4 +11,5 @@
 %ul#tickets
 	- @project.tickets.each do |ticket|
 		%li
+			= render ticket.state if ticket.state
 			\##{ ticket.id } - #{ link_to ticket.title, [@project, ticket] }

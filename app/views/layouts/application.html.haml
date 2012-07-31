@@ -7,6 +7,12 @@
 			- else
 				Ticketee
 		= stylesheet_link_tag    "application", :media => "all"
+		%style
+			- @states.each do |state|
+				\.state_#{ state.name.parameterize } {
+				background: #{ state.background };
+				color: #{ state.color };
+				}
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body
