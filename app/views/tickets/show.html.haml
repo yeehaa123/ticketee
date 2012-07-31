@@ -9,6 +9,8 @@
 	%small Created by #{ @ticket.user.email }
 	= render @ticket.state if @ticket.state
 	= simple_format(@ticket.description)
+	
+	#tags= render @ticket.tags
 
 	- if @ticket.assets.exists?
 		%h3 Attached Files
