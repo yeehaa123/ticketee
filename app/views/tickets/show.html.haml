@@ -26,4 +26,4 @@
 			= render @ticket.comments.select(&:persisted?)
 		- else
 			There are no comments for this ticket
-	= render "comments/form"
+		= render "comments/form"

@@ -15,7 +15,6 @@ Feature: Creating comments
 			| Change a ticket's state | You should be able to create a comment 	|
 		Given I am on the homepage
 		And I follow "Ticketee" within "#projects"
-		Then show me the page
 		Given there is a state called "Open"
 
 	Scenario: Creating a comment
@@ -38,3 +37,5 @@ Feature: Creating comments
 		And I press "Create Comment"
 		Then I should see "Comment has been created."
 		And I should see "Open" within "#ticket .state"
+		Then show me the page
+		Then I should see "State: Open" within "#comments"
