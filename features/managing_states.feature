@@ -11,5 +11,5 @@
 			Given I am on the homepage
 			When I follow "Admin"
 			And I follow "States"
-			And I follow "Make default" for the "New" state
-			Then I should see "New is now the default state."
+			And I follow "Make default" for the "Open" state
+			Then I should see "Open is now the default state."

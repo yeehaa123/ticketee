@@ -13,7 +13,6 @@ gem 'haml-rails'
 gem 'thin'
 gem 'devise', '~> 1.4.3'  
 gem 'cancan'
-
 gem 'paperclip'
 
 group :development, :test do

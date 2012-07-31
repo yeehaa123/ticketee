@@ -2,6 +2,9 @@
 
 %ul#states
 	- @states.each do |state|
-		%li{id: "state_#{state.id}"}
+		%li{ id: "state_#{state.id}" }
 			= state.name
-			= link_to "Make default", make_default_admin_state_path(state)
+			- if state.default?
+				(Default)
+			- else
+				= link_to "Make default", make_default_admin_state_path(state)
