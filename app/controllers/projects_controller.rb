@@ -7,6 +7,10 @@ class ProjectsController < ApplicationController
 		@projects = Project.for(current_user).all
 	end
 
+	def show
+		@tickets = @project.tickets
+	end
+
 	def create
 		@project = Project.new(params[:project])
 		if @project.save
@@ -19,9 +23,6 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
-	end
-
-	def show
 	end
 
 	def edit

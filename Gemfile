@@ -14,6 +14,7 @@ gem 'thin'
 gem 'devise', '~> 1.4.3'  
 gem 'cancan'
 gem 'paperclip'
+gem 'searcher'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
