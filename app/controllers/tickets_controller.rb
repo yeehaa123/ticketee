@@ -59,7 +59,7 @@ class TicketsController < ApplicationController
 
 		def find_project
 			@project = Project.for(current_user).find(params[:project_id])
-		rescue ActiveRecord::RecordNotFound
+			rescue ActiveRecord::RecordNotFound
 			redirect_to root_path, alert: "The project you were looking for could not be found."
 		end
 

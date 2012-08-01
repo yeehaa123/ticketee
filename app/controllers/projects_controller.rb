@@ -7,8 +7,8 @@ class ProjectsController < ApplicationController
 		@projects = Project.for(current_user).all
 	end
 
-	def show
-		@tickets = @project.tickets
+	def new
+		@project = Project.new
 	end
 
 	def create
@@ -21,8 +21,8 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-	def new
-		@project = Project.new
+	def show
+		@tickets = @project.tickets
 	end
 
 	def edit
@@ -47,8 +47,7 @@ class ProjectsController < ApplicationController
 		def find_project
 			@project = Project.for(current_user).find(params[:id])
 			rescue ActiveRecord::RecordNotFound
-			flash[:alert] = "The project you were looking for could not be found."
-			redirect_to projects_path
+			redirect_to projects_path, alert: "The project you were looking for could not be found."
 		end
 
 end
