@@ -1,12 +1,13 @@
 class Ticket < ActiveRecord::Base
   searcher do
     label :tag, from: :tags, field: :name
+    label :state, from: :state, field: :name
   end
   
   belongs_to :project
   belongs_to :user
   belongs_to :state
-  attr_accessible :description, :user, :title, :assets_attributes, :tags
+  attr_accessible :description, :user, :title, :assets_attributes, :tags, :state
 
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: 10 }
