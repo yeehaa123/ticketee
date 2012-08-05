@@ -58,5 +58,8 @@ module Ticketee
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # watchers receive an email after a comment has been created
+    config.active_record.observers = :comment_observer
   end
 end

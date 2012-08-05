@@ -15,7 +15,7 @@
 	= submit_tag "Search"
 
 %ul#tickets
-	- if @tickets.is_a?(Array)
+	- unless @tickets.is_a?(Class)
 		- @tickets.each do |ticket|
 			%li
 				= render ticket.state if ticket.state
